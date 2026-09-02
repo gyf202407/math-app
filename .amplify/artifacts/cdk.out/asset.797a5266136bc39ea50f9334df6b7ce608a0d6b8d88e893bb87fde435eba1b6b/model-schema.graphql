@@ -1,0 +1,9 @@
+type AnswerLog @model @auth(rules: [{allow: public, provider: apiKey}])
+{
+  userId: String!
+  questionId: String!
+  isCorrect: Boolean!
+  timeTakenSec: Int
+  userAnswer: String
+  answeredAt: AWSDateTime!
+}
