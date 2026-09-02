@@ -1,0 +1,4381 @@
+{
+  "deployedRootTemplate": {
+    "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"AmplifySandbox\",\"createdWith\":\"1.24.0\",\"stackType\":\"root\",\"metadata\":{}}",
+    "Metadata": {
+      "AWS::Amplify::Platform": {
+        "version": "1",
+        "stackOutputs": [
+          "deploymentType",
+          "region"
+        ]
+      },
+      "AWS::Amplify::GraphQL": {
+        "version": "1",
+        "stackOutputs": [
+          "awsAppsyncApiId",
+          "awsAppsyncApiEndpoint",
+          "awsAppsyncAuthenticationType",
+          "awsAppsyncRegion",
+          "amplifyApiModelSchemaS3Uri",
+          "awsAppsyncApiKey",
+          "awsAppsyncAdditionalAuthenticationTypes"
+        ]
+      }
+    },
+    "Outputs": {
+      "deploymentType": {
+        "Value": "sandbox"
+      },
+      "region": {
+        "Value": {
+          "Ref": "AWS::Region"
+        }
+      },
+      "awsAppsyncApiId": {
+        "Value": {
+          "Fn::GetAtt": [
+            "data7552DF31",
+            "Outputs.amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+          ]
+        }
+      },
+      "awsAppsyncApiEndpoint": {
+        "Value": {
+          "Fn::GetAtt": [
+            "data7552DF31",
+            "Outputs.amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEGraphQLUrl"
+          ]
+        }
+      },
+      "awsAppsyncAuthenticationType": {
+        "Value": "API_KEY"
+      },
+      "awsAppsyncRegion": {
+        "Value": {
+          "Ref": "AWS::Region"
+        }
+      },
+      "amplifyApiModelSchemaS3Uri": {
+        "Value": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Fn::Select": [
+                  0,
+                  {
+                    "Fn::Split": [
+                      "/",
+                      {
+                        "Fn::Select": [
+                          5,
+                          {
+                            "Fn::Split": [
+                              ":",
+                              {
+                                "Fn::GetAtt": [
+                                  "data7552DF31",
+                                  "Outputs.amplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB722AEFFCDestinationBucketArn"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "/model-schema.graphql"
+            ]
+          ]
+        }
+      },
+      "awsAppsyncApiKey": {
+        "Value": {
+          "Fn::GetAtt": [
+            "data7552DF31",
+            "Outputs.amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIDefaultApiKey3A641493ApiKey"
+          ]
+        }
+      },
+      "awsAppsyncAdditionalAuthenticationTypes": {
+        "Value": "AWS_IAM"
+      }
+    },
+    "Resources": {
+      "data7552DF31": {
+        "Type": "AWS::CloudFormation::Stack",
+        "Properties": {
+          "Tags": [
+            {
+              "Key": "amplify:deployment-type",
+              "Value": "sandbox"
+            },
+            {
+              "Key": "created-by",
+              "Value": "amplify"
+            }
+          ],
+          "TemplateURL": {
+            "Fn::Join": [
+              "",
+              [
+                "https://s3.",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ".",
+                {
+                  "Ref": "AWS::URLSuffix"
+                },
+                "/",
+                {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                },
+                "/0814e284ff3ccb823591fe223031752adaef55e5321c234549361efd88f1cb57.json"
+              ]
+            ]
+          }
+        },
+        "UpdateReplacePolicy": "Delete",
+        "DeletionPolicy": "Delete",
+        "Metadata": {
+          "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data.NestedStack/data.NestedStackResource",
+          "aws:asset:path": "amplifymathappyumasandboxcb8734b30fdata692E5B83.nested.template.json",
+          "aws:asset:property": "TemplateURL"
+        }
+      },
+      "CDKMetadata": {
+        "Type": "AWS::CDK::Metadata",
+        "Properties": {
+          "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzIz1zNQTCwv1k1OydbNyUzSqw4uSUzO1nFOy/MvLSkoLQGxwEK1Onn5Kal6WcX6ZUYmeobGeoaKWcWZmbpFpXklmbmpekEQGgCHNa5vVAAAAA=="
+        },
+        "Metadata": {
+          "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/CDKMetadata/Default"
+        },
+        "Condition": "CDKMetadataAvailable"
+      }
+    },
+    "Conditions": {
+      "CDKMetadataAvailable": {
+        "Fn::Or": [
+          {
+            "Fn::Or": [
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "af-south-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-east-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-northeast-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-northeast-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-northeast-3"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-south-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-south-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-southeast-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-southeast-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-southeast-3"
+                ]
+              }
+            ]
+          },
+          {
+            "Fn::Or": [
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ap-southeast-4"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ca-central-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "ca-west-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "cn-north-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "cn-northwest-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-central-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-central-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-north-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-south-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-south-2"
+                ]
+              }
+            ]
+          },
+          {
+            "Fn::Or": [
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-west-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-west-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "eu-west-3"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "il-central-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "me-central-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "me-south-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "sa-east-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "us-east-1"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "us-east-2"
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "us-west-1"
+                ]
+              }
+            ]
+          },
+          {
+            "Fn::Equals": [
+              {
+                "Ref": "AWS::Region"
+              },
+              "us-west-2"
+            ]
+          }
+        ]
+      }
+    },
+    "Parameters": {
+      "BootstrapVersion": {
+        "Type": "AWS::SSM::Parameter::Value<String>",
+        "Default": "/cdk-bootstrap/hnb659fds/version",
+        "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+      }
+    }
+  },
+  "nestedStacks": {
+    "data7552DF31": {
+      "physicalName": "amplify-mathapp-yuma-sandbox-cb8734b30f-data7552DF31-LA3OJ416UKNX",
+      "deployedTemplate": {
+        "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"AmplifySandbox\",\"createdWith\":\"1.22.2\",\"stackType\":\"api-AppSync\",\"metadata\":{\"dataSources\":\"dynamodb\",\"authorizationModes\":\"api_key,aws_iam\",\"customOperations\":\"\"}}",
+        "Resources": {
+          "amplifyDataGraphQLAPI42A6FA33": {
+            "Type": "AWS::AppSync::GraphQLApi",
+            "Properties": {
+              "AdditionalAuthenticationProviders": [
+                {
+                  "AuthenticationType": "AWS_IAM"
+                }
+              ],
+              "AuthenticationType": "API_KEY",
+              "Name": "amplifyData",
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "amplify:friendly-name",
+                  "Value": "amplifyData"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/GraphQLAPI/Resource"
+            }
+          },
+          "amplifyDataGraphQLAPITransformerSchemaFF50A789": {
+            "Type": "AWS::AppSync::GraphQLSchema",
+            "Properties": {
+              "ApiId": {
+                "Fn::GetAtt": [
+                  "amplifyDataGraphQLAPI42A6FA33",
+                  "ApiId"
+                ]
+              },
+              "DefinitionS3Location": {
+                "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1d804c1f05a2a78cd5fe3cf39d4794802d5a2f70222383da0f461f2f2ec78d5a.graphql"
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/GraphQLAPI/TransformerSchema"
+            }
+          },
+          "amplifyDataGraphQLAPIDefaultApiKey1C8ED374": {
+            "Type": "AWS::AppSync::ApiKey",
+            "Properties": {
+              "ApiId": {
+                "Fn::GetAtt": [
+                  "amplifyDataGraphQLAPI42A6FA33",
+                  "ApiId"
+                ]
+              },
+              "Expires": 1790956714
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/GraphQLAPI/DefaultApiKey"
+            }
+          },
+          "amplifyDataGraphQLAPINONEDS684BF699": {
+            "Type": "AWS::AppSync::DataSource",
+            "Properties": {
+              "ApiId": {
+                "Fn::GetAtt": [
+                  "amplifyDataGraphQLAPI42A6FA33",
+                  "ApiId"
+                ]
+              },
+              "Description": "None Data Source for Pipeline functions",
+              "Name": "NONE_DS",
+              "Type": "NONE"
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/GraphQLAPI/NONE_DS/Resource"
+            }
+          },
+          "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+              "Parameters": {
+                "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId": {
+                  "Fn::GetAtt": [
+                    "amplifyDataGraphQLAPI42A6FA33",
+                    "ApiId"
+                  ]
+                }
+              },
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "amplify:friendly-name",
+                  "Value": "amplifyData"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ],
+              "TemplateURL": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "https://s3.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    },
+                    "/",
+                    {
+                      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                    },
+                    "/26437ef532403344264477a93ff1c5e510e0d61a0a72ef9b0d748b7ee33690c5.json"
+                  ]
+                ]
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager.NestedStack/AmplifyTableManager.NestedStackResource",
+              "aws:asset:path": "amplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManager4F7ED817.nested.template.json",
+              "aws:asset:property": "TemplateURL"
+            }
+          },
+          "amplifyDataAnswerLogNestedStackAnswerLogNestedStackResource8F0DDF58": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+              "Parameters": {
+                "DynamoDBModelTableReadIOPS": {
+                  "Ref": "DynamoDBModelTableReadIOPS"
+                },
+                "DynamoDBModelTableWriteIOPS": {
+                  "Ref": "DynamoDBModelTableWriteIOPS"
+                },
+                "DynamoDBBillingMode": {
+                  "Ref": "DynamoDBBillingMode"
+                },
+                "DynamoDBEnablePointInTimeRecovery": {
+                  "Ref": "DynamoDBEnablePointInTimeRecovery"
+                },
+                "DynamoDBEnableServerSideEncryption": {
+                  "Ref": "DynamoDBEnableServerSideEncryption"
+                },
+                "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResourceA7EC604COutputsamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderf9216F700": {
+                  "Fn::GetAtt": [
+                    "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833",
+                    "Outputs.amplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEvent4E0A511BArn"
+                  ]
+                },
+                "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId": {
+                  "Fn::GetAtt": [
+                    "amplifyDataGraphQLAPI42A6FA33",
+                    "ApiId"
+                  ]
+                },
+                "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name": {
+                  "Fn::GetAtt": [
+                    "amplifyDataGraphQLAPINONEDS684BF699",
+                    "Name"
+                  ]
+                }
+              },
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "amplify:friendly-name",
+                  "Value": "amplifyData"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ],
+              "TemplateURL": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "https://s3.",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ".",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    },
+                    "/",
+                    {
+                      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                    },
+                    "/a3a74cfbea3d3ebbc0f0ced9da1756b665a0e7e55f31fefd978df699c47c87d6.json"
+                  ]
+                ]
+              }
+            },
+            "DependsOn": [
+              "amplifyDataGraphQLAPITransformerSchemaFF50A789"
+            ],
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog.NestedStack/AnswerLog.NestedStackResource",
+              "aws:asset:path": "amplifymathappyumasandboxcb8734b30fdataamplifyDataAnswerLog54E44DB0.nested.template.json",
+              "aws:asset:property": "TemplateURL"
+            }
+          },
+          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "CorsConfiguration": {
+                "CorsRules": [
+                  {
+                    "AllowedHeaders": [
+                      "*"
+                    ],
+                    "AllowedMethods": [
+                      "GET",
+                      "HEAD"
+                    ],
+                    "AllowedOrigins": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "https://",
+                            {
+                              "Ref": "AWS::Region"
+                            },
+                            ".console.aws.amazon.com/amplify"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "amplify:friendly-name",
+                  "Value": "amplifyData"
+                },
+                {
+                  "Key": "aws-cdk:auto-delete-objects",
+                  "Value": "true"
+                },
+                {
+                  "Key": "aws-cdk:cr-owned:b397a03c",
+                  "Value": "true"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Resource"
+            }
+          },
+          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketPolicyF1C1C548": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": [
+                      "s3:PutBucketPolicy",
+                      "s3:GetBucket*",
+                      "s3:List*",
+                      "s3:DeleteObject*"
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": {
+                        "Fn::GetAtt": [
+                          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                          "Arn"
+                        ]
+                      }
+                    },
+                    "Resource": [
+                      {
+                        "Fn::GetAtt": [
+                          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA",
+                          "Arn"
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::GetAtt": [
+                                "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA",
+                                "Arn"
+                              ]
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Version": "2012-10-17"
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Policy/Resource"
+            }
+          },
+          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketAutoDeleteObjectsCustomResource437F26F5": {
+            "Type": "Custom::S3AutoDeleteObjects",
+            "Properties": {
+              "ServiceToken": {
+                "Fn::GetAtt": [
+                  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+                  "Arn"
+                ]
+              },
+              "BucketName": {
+                "Ref": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+              }
+            },
+            "DependsOn": [
+              "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketPolicyF1C1C548"
+            ],
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/AutoDeleteObjectsCustomResource/Default"
+            }
+          },
+          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentAwsCliLayerE322F905": {
+            "Type": "AWS::Lambda::LayerVersion",
+            "Properties": {
+              "Content": {
+                "S3Bucket": {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                },
+                "S3Key": "98f62bef9320f8c0a0a7be21d7c746f069131f196f51ffe3008a6bb730b368ec.zip"
+              },
+              "Description": "/opt/awscli/aws"
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/AwsCliLayer/Resource",
+              "aws:asset:path": "asset.98f62bef9320f8c0a0a7be21d7c746f069131f196f51ffe3008a6bb730b368ec.zip",
+              "aws:asset:is-bundled": false,
+              "aws:asset:property": "Content"
+            }
+          },
+          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB21775929": {
+            "Type": "Custom::CDKBucketDeployment",
+            "Properties": {
+              "ServiceToken": {
+                "Fn::GetAtt": [
+                  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21",
+                  "Arn"
+                ]
+              },
+              "SourceBucketNames": [
+                {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                }
+              ],
+              "SourceObjectKeys": [
+                "a2d0bc89221caddffb0ffb6578806324779ae24a99849089714a8f20bc08d43b.zip"
+              ],
+              "SourceMarkers": [
+                {}
+              ],
+              "DestinationBucketName": {
+                "Ref": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+              },
+              "WaitForDistributionInvalidation": true,
+              "Prune": true,
+              "OutputObjectKeys": true,
+              "DestinationBucketArn": {
+                "Fn::GetAtt": [
+                  "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA",
+                  "Arn"
+                ]
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/CustomResource-1536MiB/Default"
+            }
+          },
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": "lambda.amazonaws.com"
+                    }
+                  }
+                ]
+              },
+              "ManagedPolicyArns": [
+                {
+                  "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+            }
+          },
+          "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                },
+                "S3Key": "faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6.zip"
+              },
+              "Timeout": 900,
+              "MemorySize": 128,
+              "Handler": "index.handler",
+              "Role": {
+                "Fn::GetAtt": [
+                  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs24.x",
+              "Description": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "Lambda function for auto-deleting objects in ",
+                    {
+                      "Ref": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+                    },
+                    " S3 bucket."
+                  ]
+                ]
+              }
+            },
+            "DependsOn": [
+              "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+            ],
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+              "aws:asset:path": "asset.faa95a81ae7d7373f3e1f242268f904eb748d8d0fdd306e8a6fe515a1905a7d6",
+              "aws:asset:property": "Code"
+            }
+          },
+          "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": "lambda.amazonaws.com"
+                    }
+                  }
+                ],
+                "Version": "2012-10-17"
+              },
+              "ManagedPolicyArns": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                    ]
+                  ]
+                }
+              ],
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/Resource"
+            }
+          },
+          "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": [
+                      "s3:GetObject*",
+                      "s3:GetBucket*",
+                      "s3:List*"
+                    ],
+                    "Effect": "Allow",
+                    "Resource": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                            }
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":s3:::",
+                            {
+                              "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Action": [
+                      "s3:GetObject*",
+                      "s3:GetBucket*",
+                      "s3:List*",
+                      "s3:DeleteObject*",
+                      "s3:PutObject",
+                      "s3:PutObjectLegalHold",
+                      "s3:PutObjectRetention",
+                      "s3:PutObjectTagging",
+                      "s3:PutObjectVersionTagging",
+                      "s3:Abort*"
+                    ],
+                    "Effect": "Allow",
+                    "Resource": [
+                      {
+                        "Fn::GetAtt": [
+                          "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA",
+                          "Arn"
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::GetAtt": [
+                                "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA",
+                                "Arn"
+                              ]
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Action": [
+                      "s3:GetObject*",
+                      "s3:GetBucket*",
+                      "s3:List*",
+                      "s3:DeleteObject*",
+                      "s3:PutObject",
+                      "s3:PutObjectLegalHold",
+                      "s3:PutObjectRetention",
+                      "s3:PutObjectTagging",
+                      "s3:PutObjectVersionTagging",
+                      "s3:Abort*"
+                    ],
+                    "Effect": "Allow",
+                    "Resource": [
+                      {
+                        "Fn::GetAtt": [
+                          "modelIntrospectionSchemaBucketF566B665",
+                          "Arn"
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::GetAtt": [
+                                "modelIntrospectionSchemaBucketF566B665",
+                                "Arn"
+                              ]
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Version": "2012-10-17"
+              },
+              "PolicyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B",
+              "Roles": [
+                {
+                  "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/DefaultPolicy/Resource"
+            }
+          },
+          "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                },
+                "S3Key": "97e9ebf0b174a5c8f7faa505739022b7f509edddffcab9211dcd08b759944c4f.zip"
+              },
+              "Environment": {
+                "Variables": {
+                  "AWS_CA_BUNDLE": "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"
+                }
+              },
+              "Handler": "index.handler",
+              "Layers": [
+                {
+                  "Ref": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentAwsCliLayerE322F905"
+                }
+              ],
+              "MemorySize": 1536,
+              "Role": {
+                "Fn::GetAtt": [
+                  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2",
+                  "Arn"
+                ]
+              },
+              "Runtime": "python3.13",
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ],
+              "Timeout": 900
+            },
+            "DependsOn": [
+              "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B",
+              "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2"
+            ],
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/Resource",
+              "aws:asset:path": "asset.97e9ebf0b174a5c8f7faa505739022b7f509edddffcab9211dcd08b759944c4f",
+              "aws:asset:is-bundled": false,
+              "aws:asset:property": "Code"
+            }
+          },
+          "modelIntrospectionSchemaBucketF566B665": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "Tags": [
+                {
+                  "Key": "amplify:deployment-type",
+                  "Value": "sandbox"
+                },
+                {
+                  "Key": "aws-cdk:auto-delete-objects",
+                  "Value": "true"
+                },
+                {
+                  "Key": "aws-cdk:cr-owned:09c70b68",
+                  "Value": "true"
+                },
+                {
+                  "Key": "created-by",
+                  "Value": "amplify"
+                }
+              ]
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/modelIntrospectionSchemaBucket/Resource"
+            }
+          },
+          "modelIntrospectionSchemaBucketPolicy4DAB0D15": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+              "Bucket": {
+                "Ref": "modelIntrospectionSchemaBucketF566B665"
+              },
+              "PolicyDocument": {
+                "Statement": [
+                  {
+                    "Action": "s3:*",
+                    "Condition": {
+                      "Bool": {
+                        "aws:SecureTransport": "false"
+                      }
+                    },
+                    "Effect": "Deny",
+                    "Principal": {
+                      "AWS": "*"
+                    },
+                    "Resource": [
+                      {
+                        "Fn::GetAtt": [
+                          "modelIntrospectionSchemaBucketF566B665",
+                          "Arn"
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::GetAtt": [
+                                "modelIntrospectionSchemaBucketF566B665",
+                                "Arn"
+                              ]
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Action": [
+                      "s3:PutBucketPolicy",
+                      "s3:GetBucket*",
+                      "s3:List*",
+                      "s3:DeleteObject*"
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                      "AWS": {
+                        "Fn::GetAtt": [
+                          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                          "Arn"
+                        ]
+                      }
+                    },
+                    "Resource": [
+                      {
+                        "Fn::GetAtt": [
+                          "modelIntrospectionSchemaBucketF566B665",
+                          "Arn"
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::GetAtt": [
+                                "modelIntrospectionSchemaBucketF566B665",
+                                "Arn"
+                              ]
+                            },
+                            "/*"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Version": "2012-10-17"
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/modelIntrospectionSchemaBucket/Policy/Resource"
+            }
+          },
+          "modelIntrospectionSchemaBucketAutoDeleteObjectsCustomResourceFE57309F": {
+            "Type": "Custom::S3AutoDeleteObjects",
+            "Properties": {
+              "ServiceToken": {
+                "Fn::GetAtt": [
+                  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+                  "Arn"
+                ]
+              },
+              "BucketName": {
+                "Ref": "modelIntrospectionSchemaBucketF566B665"
+              }
+            },
+            "DependsOn": [
+              "modelIntrospectionSchemaBucketPolicy4DAB0D15"
+            ],
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/modelIntrospectionSchemaBucket/AutoDeleteObjectsCustomResource/Default"
+            }
+          },
+          "modelIntrospectionSchemaBucketDeploymentAwsCliLayer13C432F7": {
+            "Type": "AWS::Lambda::LayerVersion",
+            "Properties": {
+              "Content": {
+                "S3Bucket": {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                },
+                "S3Key": "98f62bef9320f8c0a0a7be21d7c746f069131f196f51ffe3008a6bb730b368ec.zip"
+              },
+              "Description": "/opt/awscli/aws"
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/modelIntrospectionSchemaBucketDeployment/AwsCliLayer/Resource",
+              "aws:asset:path": "asset.98f62bef9320f8c0a0a7be21d7c746f069131f196f51ffe3008a6bb730b368ec.zip",
+              "aws:asset:is-bundled": false,
+              "aws:asset:property": "Content"
+            }
+          },
+          "modelIntrospectionSchemaBucketDeploymentCustomResource1536MiB104B97EC": {
+            "Type": "Custom::CDKBucketDeployment",
+            "Properties": {
+              "ServiceToken": {
+                "Fn::GetAtt": [
+                  "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21",
+                  "Arn"
+                ]
+              },
+              "SourceBucketNames": [
+                {
+                  "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                }
+              ],
+              "SourceObjectKeys": [
+                "677cfe62ea2fb32fcec13a763f95750b461a0fcf7cb9e10d9c0e829efc37d389.zip"
+              ],
+              "SourceMarkers": [
+                {}
+              ],
+              "DestinationBucketName": {
+                "Ref": "modelIntrospectionSchemaBucketF566B665"
+              },
+              "WaitForDistributionInvalidation": true,
+              "Prune": true,
+              "OutputObjectKeys": true
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/modelIntrospectionSchemaBucketDeployment/CustomResource-1536MiB/Default"
+            }
+          },
+          "AMPLIFYDATAGRAPHQLENDPOINTParameter1C2CBB16": {
+            "Type": "AWS::SSM::Parameter",
+            "Properties": {
+              "Name": "/amplify/resource_reference/mathapp/yuma-sandbox-cb8734b30f/AMPLIFY_DATA_GRAPHQL_ENDPOINT",
+              "Tags": {
+                "amplify:deployment-type": "sandbox",
+                "created-by": "amplify"
+              },
+              "Type": "String",
+              "Value": {
+                "Fn::GetAtt": [
+                  "amplifyDataGraphQLAPI42A6FA33",
+                  "GraphQLUrl"
+                ]
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/AMPLIFY_DATA_GRAPHQL_ENDPOINTParameter/Resource"
+            }
+          },
+          "AMPLIFYDATAMODELINTROSPECTIONSCHEMABUCKETNAMEParameter47BF4F44": {
+            "Type": "AWS::SSM::Parameter",
+            "Properties": {
+              "Name": "/amplify/resource_reference/mathapp/yuma-sandbox-cb8734b30f/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAME",
+              "Tags": {
+                "amplify:deployment-type": "sandbox",
+                "created-by": "amplify"
+              },
+              "Type": "String",
+              "Value": {
+                "Ref": "modelIntrospectionSchemaBucketF566B665"
+              }
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAMEParameter/Resource"
+            }
+          },
+          "AMPLIFYDATAMODELINTROSPECTIONSCHEMAKEYParameterB6AEAE8A": {
+            "Type": "AWS::SSM::Parameter",
+            "Properties": {
+              "Name": "/amplify/resource_reference/mathapp/yuma-sandbox-cb8734b30f/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEY",
+              "Tags": {
+                "amplify:deployment-type": "sandbox",
+                "created-by": "amplify"
+              },
+              "Type": "String",
+              "Value": "modelIntrospectionSchema.json"
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEYParameter/Resource"
+            }
+          },
+          "AMPLIFYDATADEFAULTNAMEParameterE7C23CC4": {
+            "Type": "AWS::SSM::Parameter",
+            "Properties": {
+              "Name": "/amplify/resource_reference/mathapp/yuma-sandbox-cb8734b30f/AMPLIFY_DATA_DEFAULT_NAME",
+              "Tags": {
+                "amplify:deployment-type": "sandbox",
+                "created-by": "amplify"
+              },
+              "Type": "String",
+              "Value": "amplifyData"
+            },
+            "UpdateReplacePolicy": "Delete",
+            "DeletionPolicy": "Delete",
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/AMPLIFY_DATA_DEFAULT_NAMEParameter/Resource"
+            }
+          },
+          "CDKMetadata": {
+            "Type": "AWS::CDK::Metadata",
+            "Properties": {
+              "Analytics": "v2:deflate64:H4sIAAAAAAAA/6VSTU8bMRD9LeTsuJBUVOpt2YgeiiDNSr0gFE28kzCJP7YeL+nK2v+OvIYNtCfEaea95zd6HnsmZ5ff5PkZHHmq6sNU00bGW+SAdRVAHQQceR2habizSsYfHprHP7po6AoYRbm1A/PrpmjoDarUIxpIRNHQT+zErbO4gACVa70afCfUC57LeNWqA4ak5O4+Tgz9JTv5PnmbLcXhuRwklvlo0Qa3QI0B7zZ7VIEnvfiU+0Fkaek0qe6UKeMPJMuGKkBAg/aDwf43v+ZKu09bW8caG+26JL+YFiMhgBkDyyKVXmgwmxpkLLf2Bjr0v9EzOSsqsjuNwdnr1qqQmLEptyPZCwIj48rp4fGGetpO7nrBbGSsgie7W4IHgwH9oL+Cvk8wf6yy5eDMCnn8EmOfs651yrmGIytNsjhyqWmILoYrVQF2ZHfv5v8zdOndE9Xo876sq1Hu+cvT7Ku8mMuLsz0TTX1rAxmUq1yfAWKTdCoQAwAA"
+            },
+            "Metadata": {
+              "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/CDKMetadata/Default"
+            },
+            "Condition": "CDKMetadataAvailable"
+          }
+        },
+        "Parameters": {
+          "DynamoDBModelTableReadIOPS": {
+            "Type": "Number",
+            "Default": 5,
+            "Description": "The number of read IOPS the table should support."
+          },
+          "DynamoDBModelTableWriteIOPS": {
+            "Type": "Number",
+            "Default": 5,
+            "Description": "The number of write IOPS the table should support."
+          },
+          "DynamoDBBillingMode": {
+            "Type": "String",
+            "Default": "PAY_PER_REQUEST",
+            "AllowedValues": [
+              "PAY_PER_REQUEST",
+              "PROVISIONED"
+            ],
+            "Description": "Configure @model types to create DynamoDB tables with PAY_PER_REQUEST or PROVISIONED billing modes."
+          },
+          "DynamoDBEnablePointInTimeRecovery": {
+            "Type": "String",
+            "Default": "false",
+            "AllowedValues": [
+              "true",
+              "false"
+            ],
+            "Description": "Whether to enable Point in Time Recovery on the table."
+          },
+          "DynamoDBEnableServerSideEncryption": {
+            "Type": "String",
+            "Default": "true",
+            "AllowedValues": [
+              "true",
+              "false"
+            ],
+            "Description": "Enable server side encryption powered by KMS."
+          }
+        },
+        "Conditions": {
+          "CDKMetadataAvailable": {
+            "Fn::Or": [
+              {
+                "Fn::Or": [
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "af-south-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-east-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-northeast-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-northeast-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-northeast-3"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-south-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-south-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-southeast-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-southeast-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-southeast-3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "Fn::Or": [
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ap-southeast-4"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ca-central-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "ca-west-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "cn-north-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "cn-northwest-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-central-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-central-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-north-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-south-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-south-2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "Fn::Or": [
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-west-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-west-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "eu-west-3"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "il-central-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "me-central-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "me-south-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "sa-east-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "us-east-1"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "us-east-2"
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "us-west-1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "Fn::Equals": [
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  "us-west-2"
+                ]
+              }
+            ]
+          }
+        },
+        "Outputs": {
+          "amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId": {
+            "Value": {
+              "Fn::GetAtt": [
+                "amplifyDataGraphQLAPI42A6FA33",
+                "ApiId"
+              ]
+            }
+          },
+          "amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEGraphQLUrl": {
+            "Value": {
+              "Fn::GetAtt": [
+                "amplifyDataGraphQLAPI42A6FA33",
+                "GraphQLUrl"
+              ]
+            }
+          },
+          "amplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB722AEFFCDestinationBucketArn": {
+            "Value": {
+              "Fn::GetAtt": [
+                "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB21775929",
+                "DestinationBucketArn"
+              ]
+            }
+          },
+          "amplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIDefaultApiKey3A641493ApiKey": {
+            "Value": {
+              "Fn::GetAtt": [
+                "amplifyDataGraphQLAPIDefaultApiKey1C8ED374",
+                "ApiKey"
+              ]
+            }
+          }
+        }
+      },
+      "nestedStacks": {
+        "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833": {
+          "physicalName": "amplify-mathapp-yuma-sandbox-cb8734b30f-dat-amplifyDataAmplifyTableManagerNestedStackA-5SD5BPVS9GTX",
+          "deployedTemplate": {
+            "Resources": {
+              "AmplifyManagedTableIsCompleteRoleF825222C": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                  "AssumeRolePolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "sts:AssumeRole",
+                        "Effect": "Allow",
+                        "Principal": {
+                          "Service": "lambda.amazonaws.com"
+                        }
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "ManagedPolicyArns": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:",
+                          {
+                            "Ref": "AWS::Partition"
+                          },
+                          ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                        ]
+                      ]
+                    }
+                  ],
+                  "Policies": [
+                    {
+                      "PolicyDocument": {
+                        "Statement": [
+                          {
+                            "Action": [
+                              "dynamodb:CreateTable",
+                              "dynamodb:UpdateTable",
+                              "dynamodb:DeleteTable",
+                              "dynamodb:DescribeTable",
+                              "dynamodb:DescribeContinuousBackups",
+                              "dynamodb:DescribeTimeToLive",
+                              "dynamodb:UpdateContinuousBackups",
+                              "dynamodb:UpdateTimeToLive",
+                              "dynamodb:TagResource",
+                              "dynamodb:UntagResource",
+                              "dynamodb:ListTagsOfResource"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": {
+                              "Fn::Sub": [
+                                "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/*-${apiId}-${envName}",
+                                {
+                                  "apiId": {
+                                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                                  },
+                                  "envName": "NONE"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "Action": "lambda:ListTags",
+                            "Effect": "Allow",
+                            "Resource": {
+                              "Fn::Sub": [
+                                "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:*TableManager*",
+                                {}
+                              ]
+                            }
+                          }
+                        ],
+                        "Version": "2012-10-17"
+                      },
+                      "PolicyName": "CreateUpdateDeleteTablesPolicy"
+                    }
+                  ],
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableIsCompleteRole/Resource"
+                }
+              },
+              "AmplifyManagedTableOnEventRoleB4E71DEA": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                  "AssumeRolePolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "sts:AssumeRole",
+                        "Effect": "Allow",
+                        "Principal": {
+                          "Service": "lambda.amazonaws.com"
+                        }
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "ManagedPolicyArns": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:",
+                          {
+                            "Ref": "AWS::Partition"
+                          },
+                          ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                        ]
+                      ]
+                    }
+                  ],
+                  "Policies": [
+                    {
+                      "PolicyDocument": {
+                        "Statement": [
+                          {
+                            "Action": [
+                              "dynamodb:CreateTable",
+                              "dynamodb:UpdateTable",
+                              "dynamodb:DeleteTable",
+                              "dynamodb:DescribeTable",
+                              "dynamodb:DescribeContinuousBackups",
+                              "dynamodb:DescribeTimeToLive",
+                              "dynamodb:UpdateContinuousBackups",
+                              "dynamodb:UpdateTimeToLive",
+                              "dynamodb:TagResource",
+                              "dynamodb:UntagResource",
+                              "dynamodb:ListTagsOfResource"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": {
+                              "Fn::Sub": [
+                                "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/*-${apiId}-${envName}",
+                                {
+                                  "apiId": {
+                                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                                  },
+                                  "envName": "NONE"
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "Action": "lambda:ListTags",
+                            "Effect": "Allow",
+                            "Resource": {
+                              "Fn::Sub": [
+                                "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:*TableManager*",
+                                {}
+                              ]
+                            }
+                          }
+                        ],
+                        "Version": "2012-10-17"
+                      },
+                      "PolicyName": "CreateUpdateDeleteTablesPolicy"
+                    }
+                  ],
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/Resource"
+                }
+              },
+              "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6": {
+                "Type": "AWS::IAM::Policy",
+                "Properties": {
+                  "PolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "states:StartExecution",
+                        "Effect": "Allow",
+                        "Resource": {
+                          "Ref": "AmplifyTableWaiterStateMachine060600BC"
+                        }
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "PolicyName": "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6",
+                  "Roles": [
+                    {
+                      "Ref": "AmplifyManagedTableOnEventRoleB4E71DEA"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/DefaultPolicy/Resource"
+                }
+              },
+              "TableManagerCustomProviderframeworkonEvent1DFC2ECC": {
+                "Type": "AWS::Lambda::Function",
+                "Properties": {
+                  "Code": {
+                    "S3Bucket": {
+                      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                    },
+                    "S3Key": "f2c5bec0e463cae18d0bf683be5923ae6bd676a06af1a994bdfa076a66ac07d6.zip"
+                  },
+                  "Description": "AmplifyManagedTable - onEvent (amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider)",
+                  "Environment": {
+                    "Variables": {
+                      "WAITER_STATE_MACHINE_ARN": {
+                        "Ref": "AmplifyTableWaiterStateMachine060600BC"
+                      }
+                    }
+                  },
+                  "Handler": "amplify-table-manager-handler.onEvent",
+                  "Role": {
+                    "Fn::GetAtt": [
+                      "AmplifyManagedTableOnEventRoleB4E71DEA",
+                      "Arn"
+                    ]
+                  },
+                  "Runtime": "nodejs24.x",
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ],
+                  "Timeout": 840
+                },
+                "DependsOn": [
+                  "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6",
+                  "AmplifyManagedTableOnEventRoleB4E71DEA"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-onEvent/Resource",
+                  "aws:asset:path": "asset.f2c5bec0e463cae18d0bf683be5923ae6bd676a06af1a994bdfa076a66ac07d6",
+                  "aws:asset:is-bundled": false,
+                  "aws:asset:property": "Code"
+                }
+              },
+              "TableManagerCustomProviderframeworkisComplete2E51021B": {
+                "Type": "AWS::Lambda::Function",
+                "Properties": {
+                  "Code": {
+                    "S3Bucket": {
+                      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                    },
+                    "S3Key": "f2c5bec0e463cae18d0bf683be5923ae6bd676a06af1a994bdfa076a66ac07d6.zip"
+                  },
+                  "Description": "AmplifyManagedTable - isComplete (amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider)",
+                  "Handler": "amplify-table-manager-handler.isComplete",
+                  "Role": {
+                    "Fn::GetAtt": [
+                      "AmplifyManagedTableIsCompleteRoleF825222C",
+                      "Arn"
+                    ]
+                  },
+                  "Runtime": "nodejs24.x",
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ],
+                  "Timeout": 840
+                },
+                "DependsOn": [
+                  "AmplifyManagedTableIsCompleteRoleF825222C"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-isComplete/Resource",
+                  "aws:asset:path": "asset.f2c5bec0e463cae18d0bf683be5923ae6bd676a06af1a994bdfa076a66ac07d6",
+                  "aws:asset:is-bundled": false,
+                  "aws:asset:property": "Code"
+                }
+              },
+              "AmplifyTableWaiterStateMachineRole470BE899": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                  "AssumeRolePolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "sts:AssumeRole",
+                        "Effect": "Allow",
+                        "Principal": {
+                          "Service": "states.amazonaws.com"
+                        }
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/Resource"
+                }
+              },
+              "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A": {
+                "Type": "AWS::IAM::Policy",
+                "Properties": {
+                  "PolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "lambda:InvokeFunction",
+                        "Effect": "Allow",
+                        "Resource": [
+                          {
+                            "Fn::GetAtt": [
+                              "TableManagerCustomProviderframeworkisComplete2E51021B",
+                              "Arn"
+                            ]
+                          },
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                {
+                                  "Fn::GetAtt": [
+                                    "TableManagerCustomProviderframeworkisComplete2E51021B",
+                                    "Arn"
+                                  ]
+                                },
+                                ":*"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "PolicyName": "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A",
+                  "Roles": [
+                    {
+                      "Ref": "AmplifyTableWaiterStateMachineRole470BE899"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/DefaultPolicy/Resource"
+                }
+              },
+              "AmplifyTableWaiterStateMachine060600BC": {
+                "Type": "AWS::StepFunctions::StateMachine",
+                "Properties": {
+                  "DefinitionString": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":10,\"MaxAttempts\":360,\"BackoffRate\":1}],\"Type\":\"Task\",\"Resource\":\"",
+                        {
+                          "Fn::GetAtt": [
+                            "TableManagerCustomProviderframeworkisComplete2E51021B",
+                            "Arn"
+                          ]
+                        },
+                        "\"}}}"
+                      ]
+                    ]
+                  },
+                  "RoleArn": {
+                    "Fn::GetAtt": [
+                      "AmplifyTableWaiterStateMachineRole470BE899",
+                      "Arn"
+                    ]
+                  }
+                },
+                "DependsOn": [
+                  "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A",
+                  "AmplifyTableWaiterStateMachineRole470BE899"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Resource"
+                }
+              },
+              "CDKMetadata": {
+                "Type": "AWS::CDK::Metadata",
+                "Properties": {
+                  "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWNyw6CMBBFv4V9GQWMrsXEpTHwAWRoR1IebcK0EtP03w2gq3NuzuLmkJ8vcExw4VSqIR11C+FB7EjVDuUgcOEmaJwgVHYkcXuZjU87avlZ525RjDi1CiHcvZFOW7O2v0fBRYPM5BiuKwQXUHo5kCuRKYqK2PpZkthq7bDTptvOfiEKYxVBz4d3foKsgCzpWet09sbpiaDa+QUSo8+bzwAAAA=="
+                },
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AmplifyTableManager/CDKMetadata/Default"
+                },
+                "Condition": "CDKMetadataAvailable"
+              }
+            },
+            "Conditions": {
+              "CDKMetadataAvailable": {
+                "Fn::Or": [
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "af-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-3"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-south-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-4"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ca-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ca-west-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "cn-north-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "cn-northwest-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-central-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-north-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-south-2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-3"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "il-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "me-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "me-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "sa-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-east-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-west-1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "us-west-2"
+                    ]
+                  }
+                ]
+              }
+            },
+            "Parameters": {
+              "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId": {
+                "Type": "String"
+              }
+            },
+            "Outputs": {
+              "amplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEvent4E0A511BArn": {
+                "Value": {
+                  "Fn::GetAtt": [
+                    "TableManagerCustomProviderframeworkonEvent1DFC2ECC",
+                    "Arn"
+                  ]
+                }
+              }
+            }
+          },
+          "nestedStacks": {}
+        },
+        "amplifyDataAnswerLogNestedStackAnswerLogNestedStackResource8F0DDF58": {
+          "physicalName": "amplify-mathapp-yuma-sandbox-cb8734b30f-dat-amplifyDataAnswerLogNestedStackAnswerLogNe-NFPY9CU9LEPF",
+          "deployedTemplate": {
+            "Parameters": {
+              "DynamoDBModelTableReadIOPS": {
+                "Type": "Number",
+                "Default": 5,
+                "Description": "The number of read IOPS the table should support."
+              },
+              "DynamoDBModelTableWriteIOPS": {
+                "Type": "Number",
+                "Default": 5,
+                "Description": "The number of write IOPS the table should support."
+              },
+              "DynamoDBBillingMode": {
+                "Type": "String",
+                "Default": "PAY_PER_REQUEST",
+                "AllowedValues": [
+                  "PAY_PER_REQUEST",
+                  "PROVISIONED"
+                ],
+                "Description": "Configure @model types to create DynamoDB tables with PAY_PER_REQUEST or PROVISIONED billing modes."
+              },
+              "DynamoDBEnablePointInTimeRecovery": {
+                "Type": "String",
+                "Default": "false",
+                "AllowedValues": [
+                  "true",
+                  "false"
+                ],
+                "Description": "Whether to enable Point in Time Recovery on the table."
+              },
+              "DynamoDBEnableServerSideEncryption": {
+                "Type": "String",
+                "Default": "true",
+                "AllowedValues": [
+                  "true",
+                  "false"
+                ],
+                "Description": "Enable server side encryption powered by KMS."
+              },
+              "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResourceA7EC604COutputsamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderf9216F700": {
+                "Type": "String"
+              },
+              "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId": {
+                "Type": "String"
+              },
+              "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name": {
+                "Type": "String"
+              }
+            },
+            "Conditions": {
+              "HasEnvironmentParameter": {
+                "Fn::Not": [
+                  {
+                    "Fn::Equals": [
+                      "NONE",
+                      "NONE"
+                    ]
+                  }
+                ]
+              },
+              "ShouldUsePayPerRequestBilling": {
+                "Fn::Equals": [
+                  {
+                    "Ref": "DynamoDBBillingMode"
+                  },
+                  "PAY_PER_REQUEST"
+                ]
+              },
+              "ShouldUsePointInTimeRecovery": {
+                "Fn::Equals": [
+                  {
+                    "Ref": "DynamoDBEnablePointInTimeRecovery"
+                  },
+                  "true"
+                ]
+              },
+              "CDKMetadataAvailable": {
+                "Fn::Or": [
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "af-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-northeast-3"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-south-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-3"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ap-southeast-4"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ca-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "ca-west-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "cn-north-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "cn-northwest-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-central-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-north-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-south-2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Or": [
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "eu-west-3"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "il-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "me-central-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "me-south-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "sa-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-east-1"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-east-2"
+                        ]
+                      },
+                      {
+                        "Fn::Equals": [
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "us-west-1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "Fn::Equals": [
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      "us-west-2"
+                    ]
+                  }
+                ]
+              }
+            },
+            "Resources": {
+              "AnswerLogTable": {
+                "Type": "Custom::AmplifyDynamoDBTable",
+                "Properties": {
+                  "ServiceToken": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResourceA7EC604COutputsamplifymathappyumasandboxcb8734b30fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderf9216F700"
+                  },
+                  "tableName": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "AnswerLog-",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "-NONE"
+                      ]
+                    ]
+                  },
+                  "attributeDefinitions": [
+                    {
+                      "attributeName": "id",
+                      "attributeType": "S"
+                    }
+                  ],
+                  "keySchema": [
+                    {
+                      "attributeName": "id",
+                      "keyType": "HASH"
+                    }
+                  ],
+                  "provisionedThroughput": {
+                    "Fn::If": [
+                      "ShouldUsePayPerRequestBilling",
+                      {
+                        "Ref": "AWS::NoValue"
+                      },
+                      {
+                        "ReadCapacityUnits": {
+                          "Ref": "DynamoDBModelTableReadIOPS"
+                        },
+                        "WriteCapacityUnits": {
+                          "Ref": "DynamoDBModelTableWriteIOPS"
+                        }
+                      }
+                    ]
+                  },
+                  "sseSpecification": {
+                    "sseEnabled": false
+                  },
+                  "streamSpecification": {
+                    "streamViewType": "NEW_AND_OLD_IMAGES"
+                  },
+                  "deletionProtectionEnabled": false,
+                  "allowDestructiveGraphqlSchemaUpdates": true,
+                  "replaceTableUponGsiUpdate": true,
+                  "pointInTimeRecoverySpecification": {
+                    "Fn::If": [
+                      "ShouldUsePointInTimeRecovery",
+                      {
+                        "PointInTimeRecoveryEnabled": true
+                      },
+                      {
+                        "Ref": "AWS::NoValue"
+                      }
+                    ]
+                  },
+                  "billingMode": {
+                    "Fn::If": [
+                      "ShouldUsePayPerRequestBilling",
+                      "PAY_PER_REQUEST",
+                      {
+                        "Ref": "AWS::NoValue"
+                      }
+                    ]
+                  }
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/AnswerLogTable/Default/Default"
+                }
+              },
+              "AnswerLogIAMRole2DD06BD7": {
+                "Type": "AWS::IAM::Role",
+                "Properties": {
+                  "AssumeRolePolicyDocument": {
+                    "Statement": [
+                      {
+                        "Action": "sts:AssumeRole",
+                        "Effect": "Allow",
+                        "Principal": {
+                          "Service": "appsync.amazonaws.com"
+                        }
+                      }
+                    ],
+                    "Version": "2012-10-17"
+                  },
+                  "Policies": [
+                    {
+                      "PolicyDocument": {
+                        "Statement": [
+                          {
+                            "Action": [
+                              "dynamodb:BatchGetItem",
+                              "dynamodb:BatchWriteItem",
+                              "dynamodb:PutItem",
+                              "dynamodb:DeleteItem",
+                              "dynamodb:GetItem",
+                              "dynamodb:Scan",
+                              "dynamodb:Query",
+                              "dynamodb:UpdateItem",
+                              "dynamodb:ConditionCheckItem",
+                              "dynamodb:DescribeTable",
+                              "dynamodb:GetRecords",
+                              "dynamodb:GetShardIterator"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": [
+                              {
+                                "Fn::Sub": [
+                                  "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}",
+                                  {
+                                    "tablename": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "AnswerLog-",
+                                          {
+                                            "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                                          },
+                                          "-NONE"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "Fn::Sub": [
+                                  "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}/*",
+                                  {
+                                    "tablename": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "AnswerLog-",
+                                          {
+                                            "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                                          },
+                                          "-NONE"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Version": "2012-10-17"
+                      },
+                      "PolicyName": "DynamoDBAccess"
+                    }
+                  ],
+                  "RoleName": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "AnswerLogIAMRoleed90ce-",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "-NONE"
+                      ]
+                    ]
+                  },
+                  "Tags": [
+                    {
+                      "Key": "amplify:deployment-type",
+                      "Value": "sandbox"
+                    },
+                    {
+                      "Key": "amplify:friendly-name",
+                      "Value": "amplifyData"
+                    },
+                    {
+                      "Key": "created-by",
+                      "Value": "amplify"
+                    }
+                  ]
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/AnswerLogIAMRole/Resource"
+                }
+              },
+              "AnswerLogDataSource": {
+                "Type": "AWS::AppSync::DataSource",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DynamoDBConfig": {
+                    "AwsRegion": {
+                      "Ref": "AWS::Region"
+                    },
+                    "TableName": {
+                      "Fn::Select": [
+                        1,
+                        {
+                          "Fn::Split": [
+                            "/",
+                            {
+                              "Fn::Select": [
+                                5,
+                                {
+                                  "Fn::Split": [
+                                    ":",
+                                    {
+                                      "Fn::GetAtt": [
+                                        "AnswerLogTable",
+                                        "TableArn"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "Name": "AnswerLogTable",
+                  "ServiceRoleArn": {
+                    "Fn::GetAtt": [
+                      "AnswerLogIAMRole2DD06BD7",
+                      "Arn"
+                    ]
+                  },
+                  "Type": "AMAZON_DYNAMODB"
+                },
+                "DependsOn": [
+                  "AnswerLogIAMRole2DD06BD7"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/AnswerLogDataSource/Resource"
+                }
+              },
+              "QuerygetAnswerLogauth0FunctionQuerygetAnswerLogauth0FunctionAppSyncFunction5CDC4D4C": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QuerygetAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/74c1522efb7733193e4d75cee5b96595110452c456623a36d786f743aea94e7c.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QuerygetAnswerLogauth0Function/QuerygetAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "QuerygetAnswerLogpostAuth0FunctionQuerygetAnswerLogpostAuth0FunctionAppSyncFunctionFB1AB00B": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QuerygetAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QuerygetAnswerLogpostAuth0Function/QuerygetAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "QueryGetAnswerLogDataResolverFnQueryGetAnswerLogDataResolverFnAppSyncFunctionDE55DADF": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QueryGetAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/08f4d557693d96c1a4efba0f9dc91330e4b19772fd5477c156468843e3d9cb5e.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4c6a2d29f01c6091bd1d9afe16e5849d456c96f17c3b215938c8067399532719.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QueryGetAnswerLogDataResolverFn/QueryGetAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "GetAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "getAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "QuerygetAnswerLogauth0FunctionQuerygetAnswerLogauth0FunctionAppSyncFunction5CDC4D4C",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "QuerygetAnswerLogpostAuth0FunctionQuerygetAnswerLogpostAuth0FunctionAppSyncFunctionFB1AB00B",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "QueryGetAnswerLogDataResolverFnQueryGetAnswerLogDataResolverFnAppSyncFunctionDE55DADF",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+                        {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Fn::Select": [
+                                    5,
+                                    {
+                                      "Fn::Split": [
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "AnswerLogTable",
+                                            "TableArn"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Query"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/queryGetAnswerLogResolver"
+                }
+              },
+              "QuerylistAnswerLogsauth0FunctionQuerylistAnswerLogsauth0FunctionAppSyncFunction56BEA6EE": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QuerylistAnswerLogsauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/74c1522efb7733193e4d75cee5b96595110452c456623a36d786f743aea94e7c.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QuerylistAnswerLogsauth0Function/QuerylistAnswerLogsauth0Function.AppSyncFunction"
+                }
+              },
+              "QuerylistAnswerLogspostAuth0FunctionQuerylistAnswerLogspostAuth0FunctionAppSyncFunctionB5092236": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QuerylistAnswerLogspostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QuerylistAnswerLogspostAuth0Function/QuerylistAnswerLogspostAuth0Function.AppSyncFunction"
+                }
+              },
+              "QueryListAnswerLogsDataResolverFnQueryListAnswerLogsDataResolverFnAppSyncFunctionB094A836": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "QueryListAnswerLogsDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9fcbe070ecd3023c5bf5b966fa9584757db9762eef123bad0820bd87591b2174.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/cc01911d0269d4080ea57505dc445dfc315ef7ad85d3d9d4ea1357858bff451d.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/QueryListAnswerLogsDataResolverFn/QueryListAnswerLogsDataResolverFn.AppSyncFunction"
+                }
+              },
+              "ListAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "listAnswerLogs",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "QuerylistAnswerLogsauth0FunctionQuerylistAnswerLogsauth0FunctionAppSyncFunction56BEA6EE",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "QuerylistAnswerLogspostAuth0FunctionQuerylistAnswerLogspostAuth0FunctionAppSyncFunctionB5092236",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "QueryListAnswerLogsDataResolverFnQueryListAnswerLogsDataResolverFnAppSyncFunctionB094A836",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listAnswerLogs\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+                        {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Fn::Select": [
+                                    5,
+                                    {
+                                      "Fn::Split": [
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "AnswerLogTable",
+                                            "TableArn"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Query"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/queryListAnswerLogsResolver"
+                }
+              },
+              "MutationcreateAnswerLoginit0FunctionMutationcreateAnswerLoginit0FunctionAppSyncFunction9A6F1278": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationcreateAnswerLoginit0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a183ddccbd956316c38ef97177b8f088ef0826f62023323f5ae6053d348ccffc.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationcreateAnswerLoginit0Function/MutationcreateAnswerLoginit0Function.AppSyncFunction"
+                }
+              },
+              "MutationcreateAnswerLogauth0FunctionMutationcreateAnswerLogauth0FunctionAppSyncFunctionA4085F8F": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationcreateAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/eda4511e01e0956a1b97d4ca904a6671ee21a1a583dff170fb18cbbd4f9dd6e6.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationcreateAnswerLogauth0Function/MutationcreateAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "MutationcreateAnswerLogpostAuth0FunctionMutationcreateAnswerLogpostAuth0FunctionAppSyncFunction9B003B08": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationcreateAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationcreateAnswerLogpostAuth0Function/MutationcreateAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "MutationCreateAnswerLogDataResolverFnMutationCreateAnswerLogDataResolverFnAppSyncFunctionA97BBACE": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationCreateAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/126cf1afe5a2c29e994ac933a459c2c18aa509592bf6a33ad35df91fa7fa1d05.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationCreateAnswerLogDataResolverFn/MutationCreateAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "CreateAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "createAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "MutationcreateAnswerLoginit0FunctionMutationcreateAnswerLoginit0FunctionAppSyncFunction9A6F1278",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationcreateAnswerLogauth0FunctionMutationcreateAnswerLogauth0FunctionAppSyncFunctionA4085F8F",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationcreateAnswerLogpostAuth0FunctionMutationcreateAnswerLogpostAuth0FunctionAppSyncFunction9B003B08",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationCreateAnswerLogDataResolverFnMutationCreateAnswerLogDataResolverFnAppSyncFunctionA97BBACE",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+                        {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Fn::Select": [
+                                    5,
+                                    {
+                                      "Fn::Split": [
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "AnswerLogTable",
+                                            "TableArn"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Mutation"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/mutationCreateAnswerLogResolver"
+                }
+              },
+              "MutationupdateAnswerLoginit0FunctionMutationupdateAnswerLoginit0FunctionAppSyncFunction10A1117C": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationupdateAnswerLoginit0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/06db846fd14e6fc371f22b12b5545ba8e2dbfeda85d8c8d586c71c282166657b.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationupdateAnswerLoginit0Function/MutationupdateAnswerLoginit0Function.AppSyncFunction"
+                }
+              },
+              "MutationupdateAnswerLogauth0FunctionMutationupdateAnswerLogauth0FunctionAppSyncFunction0D14024B": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationupdateAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/cd0b7103bd7f11aa4b0201590c636ce2c0edbf9e5dd157cb5e0819bc7d7f4738.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationupdateAnswerLogauth0Function/MutationupdateAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "MutationupdateAnswerLogpostAuth0FunctionMutationupdateAnswerLogpostAuth0FunctionAppSyncFunction1858FE22": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationupdateAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationupdateAnswerLogpostAuth0Function/MutationupdateAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "MutationUpdateAnswerLogDataResolverFnMutationUpdateAnswerLogDataResolverFnAppSyncFunction40E6103D": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationUpdateAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/474bf0776ec2164a13191d1a0a9e057154931e4918fea5086f49850d02a5371b.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationUpdateAnswerLogDataResolverFn/MutationUpdateAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "UpdateAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "updateAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "MutationupdateAnswerLoginit0FunctionMutationupdateAnswerLoginit0FunctionAppSyncFunction10A1117C",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationupdateAnswerLogauth0FunctionMutationupdateAnswerLogauth0FunctionAppSyncFunction0D14024B",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationupdateAnswerLogpostAuth0FunctionMutationupdateAnswerLogpostAuth0FunctionAppSyncFunction1858FE22",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationUpdateAnswerLogDataResolverFnMutationUpdateAnswerLogDataResolverFnAppSyncFunction40E6103D",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+                        {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Fn::Select": [
+                                    5,
+                                    {
+                                      "Fn::Split": [
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "AnswerLogTable",
+                                            "TableArn"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Mutation"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/mutationUpdateAnswerLogResolver"
+                }
+              },
+              "MutationdeleteAnswerLogauth0FunctionMutationdeleteAnswerLogauth0FunctionAppSyncFunctionEC4F6CEF": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationdeleteAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0064bfbd7fdaea51ef97e8494f036beca0be53bc5c1c7b05c29a27f9cdb28bd2.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationdeleteAnswerLogauth0Function/MutationdeleteAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "MutationdeleteAnswerLogpostAuth0FunctionMutationdeleteAnswerLogpostAuth0FunctionAppSyncFunction76BD2485": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationdeleteAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationdeleteAnswerLogpostAuth0Function/MutationdeleteAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "MutationDeleteAnswerLogDataResolverFnMutationDeleteAnswerLogDataResolverFnAppSyncFunctionE9389EA8": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Fn::GetAtt": [
+                      "AnswerLogDataSource",
+                      "Name"
+                    ]
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "MutationDeleteAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4f7907d1209a2c9953a0c053df402c634e359546d70c7cc5c2e8e21ea734880f.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+                  }
+                },
+                "DependsOn": [
+                  "AnswerLogDataSource"
+                ],
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/MutationDeleteAnswerLogDataResolverFn/MutationDeleteAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "DeleteAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "deleteAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "MutationdeleteAnswerLogauth0FunctionMutationdeleteAnswerLogauth0FunctionAppSyncFunctionEC4F6CEF",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationdeleteAnswerLogpostAuth0FunctionMutationdeleteAnswerLogpostAuth0FunctionAppSyncFunction76BD2485",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "MutationDeleteAnswerLogDataResolverFnMutationDeleteAnswerLogDataResolverFnAppSyncFunctionE9389EA8",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+                        {
+                          "Fn::Select": [
+                            1,
+                            {
+                              "Fn::Split": [
+                                "/",
+                                {
+                                  "Fn::Select": [
+                                    5,
+                                    {
+                                      "Fn::Split": [
+                                        ":",
+                                        {
+                                          "Fn::GetAtt": [
+                                            "AnswerLogTable",
+                                            "TableArn"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Mutation"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/mutationDeleteAnswerLogResolver"
+                }
+              },
+              "SubscriptiononCreateAnswerLogauth0FunctionSubscriptiononCreateAnswerLogauth0FunctionAppSyncFunction05054796": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononCreateAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0064bfbd7fdaea51ef97e8494f036beca0be53bc5c1c7b05c29a27f9cdb28bd2.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononCreateAnswerLogauth0Function/SubscriptiononCreateAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptiononCreateAnswerLogpostAuth0FunctionSubscriptiononCreateAnswerLogpostAuth0FunctionAppSyncFunctionF7F03045": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononCreateAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononCreateAnswerLogpostAuth0Function/SubscriptiononCreateAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptionOnCreateAnswerLogDataResolverFnSubscriptionOnCreateAnswerLogDataResolverFnAppSyncFunction3D0E3355": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptionOnCreateAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+                  }
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptionOnCreateAnswerLogDataResolverFn/SubscriptionOnCreateAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "SubscriptiononCreateAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "onCreateAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononCreateAnswerLogauth0FunctionSubscriptiononCreateAnswerLogauth0FunctionAppSyncFunction05054796",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononCreateAnswerLogpostAuth0FunctionSubscriptiononCreateAnswerLogpostAuth0FunctionAppSyncFunctionF7F03045",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptionOnCreateAnswerLogDataResolverFnSubscriptionOnCreateAnswerLogDataResolverFnAppSyncFunction3D0E3355",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Subscription"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/subscriptionOnCreateAnswerLogResolver"
+                }
+              },
+              "SubscriptiononUpdateAnswerLogauth0FunctionSubscriptiononUpdateAnswerLogauth0FunctionAppSyncFunction7BB074D5": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononUpdateAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0064bfbd7fdaea51ef97e8494f036beca0be53bc5c1c7b05c29a27f9cdb28bd2.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononUpdateAnswerLogauth0Function/SubscriptiononUpdateAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptiononUpdateAnswerLogpostAuth0FunctionSubscriptiononUpdateAnswerLogpostAuth0FunctionAppSyncFunction939130FA": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononUpdateAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononUpdateAnswerLogpostAuth0Function/SubscriptiononUpdateAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptionOnUpdateAnswerLogDataResolverFnSubscriptionOnUpdateAnswerLogDataResolverFnAppSyncFunction4E5BC38E": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptionOnUpdateAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+                  }
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptionOnUpdateAnswerLogDataResolverFn/SubscriptionOnUpdateAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "SubscriptiononUpdateAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "onUpdateAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononUpdateAnswerLogauth0FunctionSubscriptiononUpdateAnswerLogauth0FunctionAppSyncFunction7BB074D5",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononUpdateAnswerLogpostAuth0FunctionSubscriptiononUpdateAnswerLogpostAuth0FunctionAppSyncFunction939130FA",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptionOnUpdateAnswerLogDataResolverFnSubscriptionOnUpdateAnswerLogDataResolverFnAppSyncFunction4E5BC38E",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Subscription"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/subscriptionOnUpdateAnswerLogResolver"
+                }
+              },
+              "SubscriptiononDeleteAnswerLogauth0FunctionSubscriptiononDeleteAnswerLogauth0FunctionAppSyncFunction42103182": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononDeleteAnswerLogauth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0064bfbd7fdaea51ef97e8494f036beca0be53bc5c1c7b05c29a27f9cdb28bd2.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononDeleteAnswerLogauth0Function/SubscriptiononDeleteAnswerLogauth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptiononDeleteAnswerLogpostAuth0FunctionSubscriptiononDeleteAnswerLogpostAuth0FunctionAppSyncFunction4217ACC4": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptiononDeleteAnswerLogpostAuth0Function",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+                  },
+                  "ResponseMappingTemplate": "$util.toJson({})"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptiononDeleteAnswerLogpostAuth0Function/SubscriptiononDeleteAnswerLogpostAuth0Function.AppSyncFunction"
+                }
+              },
+              "SubscriptionOnDeleteAnswerLogDataResolverFnSubscriptionOnDeleteAnswerLogDataResolverFnAppSyncFunction353B7CF4": {
+                "Type": "AWS::AppSync::FunctionConfiguration",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "DataSourceName": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPINONEDSFE655691Name"
+                  },
+                  "FunctionVersion": "2018-05-29",
+                  "Name": "SubscriptionOnDeleteAnswerLogDataResolverFn",
+                  "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+                  },
+                  "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+                  }
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/SubscriptionOnDeleteAnswerLogDataResolverFn/SubscriptionOnDeleteAnswerLogDataResolverFn.AppSyncFunction"
+                }
+              },
+              "SubscriptiononDeleteAnswerLogResolver": {
+                "Type": "AWS::AppSync::Resolver",
+                "Properties": {
+                  "ApiId": {
+                    "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                  },
+                  "FieldName": "onDeleteAnswerLog",
+                  "Kind": "PIPELINE",
+                  "PipelineConfig": {
+                    "Functions": [
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononDeleteAnswerLogauth0FunctionSubscriptiononDeleteAnswerLogauth0FunctionAppSyncFunction42103182",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptiononDeleteAnswerLogpostAuth0FunctionSubscriptiononDeleteAnswerLogpostAuth0FunctionAppSyncFunction4217ACC4",
+                          "FunctionId"
+                        ]
+                      },
+                      {
+                        "Fn::GetAtt": [
+                          "SubscriptionOnDeleteAnswerLogDataResolverFnSubscriptionOnDeleteAnswerLogDataResolverFnAppSyncFunction353B7CF4",
+                          "FunctionId"
+                        ]
+                      }
+                    ]
+                  },
+                  "RequestMappingTemplate": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteAnswerLog\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+                      ]
+                    ]
+                  },
+                  "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+                  "TypeName": "Subscription"
+                },
+                "UpdateReplacePolicy": "Delete",
+                "DeletionPolicy": "Delete",
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/subscriptionOnDeleteAnswerLogResolver"
+                }
+              },
+              "CDKMetadata": {
+                "Type": "AWS::CDK::Metadata",
+                "Properties": {
+                  "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WOwW6DMAyGn6X34K0wbecV1OM2we6VSQxKgQTFTqsK8e5T6NRpp9+f/Mn+c8hf3+B5h1fOtBmy0bawfBALmUZQD6rs3BcGnEgoJCi9M1asd6om9jFoUmVk8dMfdu4x45VPi7k5nLxp4RvbkQ7IpCxOsNR+vNt+pFXhPPPNaViqTa/aCgWbx8n/dIxOpxKld53tY8Ct0e/n8UJhVVyckJmE4T2F4gIOUQ8kqcCa3M8ocxS1rRvB3rp+Vc4bgjM/XfIX2Bew353Z2ixEJ3YiqO/5A2KoK3E2AQAA"
+                },
+                "Metadata": {
+                  "aws:cdk:path": "amplify-mathapp-yuma-sandbox-cb8734b30f/data/amplifyData/AnswerLog/CDKMetadata/Default"
+                },
+                "Condition": "CDKMetadataAvailable"
+              }
+            },
+            "Outputs": {
+              "GetAttAnswerLogTableStreamArn": {
+                "Description": "Your DynamoDB table StreamArn.",
+                "Value": {
+                  "Fn::GetAtt": [
+                    "AnswerLogTable",
+                    "TableStreamArn"
+                  ]
+                },
+                "Export": {
+                  "Name": {
+                    "Fn::Join": [
+                      ":",
+                      [
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "GetAtt:AnswerLogTable:StreamArn"
+                      ]
+                    ]
+                  }
+                }
+              },
+              "GetAttAnswerLogTableName": {
+                "Description": "Your DynamoDB table name.",
+                "Value": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "AnswerLog-",
+                      {
+                        "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                      },
+                      "-NONE"
+                    ]
+                  ]
+                },
+                "Export": {
+                  "Name": {
+                    "Fn::Join": [
+                      ":",
+                      [
+                        {
+                          "Ref": "referencetoamplifymathappyumasandboxcb8734b30fdataamplifyDataGraphQLAPIC3EE8AAEApiId"
+                        },
+                        "GetAtt:AnswerLogTable:Name"
+                      ]
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "nestedStacks": {}
+        }
+      }
+    }
+  }
+}

@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
+import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/data';
+import outputs from '../amplify_outputs.json'; // 設定ファイルのインポート
 import type { Schema } from '../amplify/data/resource';
 import './App.css';
 
-const client = generateClient<Schema>();
+// Amplify の初期化（バックエンドの接続情報を適用）
+Amplify.configure(outputs);
+
+// クライアントの生成（API Key 認証を明示）
+const client = generateClient<Schema>({
+  authMode: 'apiKey',
+});
 
 interface MathQuestion {
   id: string;
@@ -63,11 +71,9 @@ function QuestionCard({ question, onAnswer, onNext }: QuestionCardProps) {
     setIsSubmitted(true);
     const timeTaken = Math.min(10, Math.max(1, Math.round((Date.now() - startTime) / 1000)));
 
-    // 【修正】入力値を確実に数値変換して完全一致判定 (Number vs Number)
     const userAnsNumber = Number(trimmedInput);
     const correctAnsNumber = Number(question.answer);
     
-    // 型や不要な空白を排除して厳密に比較
     const isCorrect = !isNaN(userAnsNumber) && userAnsNumber === correctAnsNumber;
 
     if (isCorrect) {
@@ -76,7 +82,6 @@ function QuestionCard({ question, onAnswer, onNext }: QuestionCardProps) {
       setResultMessage(`❌ 不正解... 正解は ${question.answer} でした`);
     }
 
-    // 親コンポーネントに判定結果を通知
     onAnswer(isCorrect, trimmedInput, timeTaken);
   };
 
@@ -152,6 +157,9 @@ function QuestionCard({ question, onAnswer, onNext }: QuestionCardProps) {
 // 2. メインAppコンポーネント
 // --------------------------------------------------
 export default function App() {
+  const [playerName, setPlayerName] = useState<string>(() => {
+    return localStorage.getItem('math_app_player_name') || '';
+  });
   const [currentQuestion, setCurrentQuestion] = useState<MathQuestion | null>(null);
   const [score, setScore] = useState<number>(0);
   const [streak, setStreak] = useState<number>(0);
@@ -203,37 +211,34 @@ export default function App() {
     }
   };
 
-  // 【修正】連勝（STREAK）とスコアの更新ロジックを確定
   const handleAnswerResult = async (isCorrect: boolean, answerText: string, timeTaken: number) => {
     if (!currentQuestion) return;
 
     if (isCorrect) {
-      // Functional Update（Stateの非同期遅延を防止）
       setStreak((prevStreak) => {
         const nextStreak = prevStreak + 1;
-        // 最大連勝の更新
         setMaxStreak((prevMax) => Math.max(prevMax, nextStreak));
         return nextStreak;
       });
 
-      // スコア加算
       setScore((prevScore) => {
         const timeBonus = (10 - timeTaken) * 10;
-        // 現在の連勝数に応じた倍率
         const comboMultiplier = 1 + streak * 0.2;
         const addedPoints = Math.round((100 + timeBonus) * comboMultiplier);
         return prevScore + addedPoints;
       });
     } else {
-      // 不正解時はリセット
       setStreak(0);
       setScore(0);
     }
 
+    // ニックネームを保存。未入力の場合は "ゲスト"
+    const activeUserId = playerName.trim() !== '' ? playerName.trim() : 'ゲスト';
+
     // DynamoDB保存
     try {
       await client.models.AnswerLog.create({
-        userId: 'yuma_user',
+        userId: activeUserId,
         questionId: `${currentQuestion.num1}${currentQuestion.operator}${currentQuestion.num2}`,
         isCorrect,
         userAnswer: answerText,
@@ -248,6 +253,41 @@ export default function App() {
 
   return (
     <div style={{ padding: '1.5rem', maxWidth: '600px', margin: '0 auto', fontFamily: 'sans-serif' }}>
+      
+      {/* プレイヤー名入力欄 */}
+      <div style={{
+        background: '#fff',
+        border: '1px solid #dee2e6',
+        borderRadius: '8px',
+        padding: '0.75rem 1rem',
+        marginBottom: '1.2rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}>
+        <label htmlFor="playerName" style={{ fontWeight: 'bold', fontSize: '0.9rem', color: '#495057', whiteSpace: 'nowrap' }}>
+          👤 ニックネーム:
+        </label>
+        <input
+          id="playerName"
+          type="text"
+          value={playerName}
+          onChange={(e) => {
+            setPlayerName(e.target.value);
+            localStorage.setItem('math_app_player_name', e.target.value);
+          }}
+          placeholder="名前を入力（空欄は「ゲスト」）"
+          maxLength={15}
+          style={{
+            flex: 1,
+            padding: '0.4rem 0.6rem',
+            fontSize: '0.95rem',
+            borderRadius: '4px',
+            border: '1px solid #ced4da'
+          }}
+        />
+      </div>
+
       {/* スコア表示領域 */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', marginBottom: '1.5rem', textAlign: 'center' }}>
         <div style={{ background: '#eef2ff', padding: '0.75rem', borderRadius: '8px', border: '1px solid #c7d2fe' }}>
@@ -296,6 +336,16 @@ export default function App() {
             >
               <div>
                 <span style={{ fontSize: '1.1rem', marginRight: '0.5rem' }}>{log.isCorrect ? '⭕' : '❌'}</span>
+                <span style={{
+                  fontSize: '0.8rem',
+                  background: '#e9ecef',
+                  padding: '0.2rem 0.4rem',
+                  borderRadius: '4px',
+                  marginRight: '0.5rem',
+                  color: '#495057'
+                }}>
+                  {log.userId || 'ゲスト'}
+                </span>
                 <strong>{log.questionId}</strong> （回答: {log.userAnswer}）
               </div>
               <div style={{ fontSize: '0.85rem', color: '#6c757d' }}>

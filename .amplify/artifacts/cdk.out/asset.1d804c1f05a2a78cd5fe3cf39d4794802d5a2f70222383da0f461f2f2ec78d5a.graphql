@@ -2,8 +2,8 @@ type AnswerLog @aws_iam @aws_api_key {
   userId: String!
   questionId: String!
   isCorrect: Boolean!
-  timeTakenSec: Int
-  userAnswer: String
+  userAnswer: String!
+  timeTakenSec: Int!
   answeredAt: AWSDateTime!
   id: ID!
   createdAt: AWSDateTime!
@@ -174,8 +174,8 @@ input ModelAnswerLogFilterInput {
   userId: ModelStringInput
   questionId: ModelStringInput
   isCorrect: ModelBooleanInput
-  timeTakenSec: ModelIntInput
   userAnswer: ModelStringInput
+  timeTakenSec: ModelIntInput
   answeredAt: ModelStringInput
   id: ModelIDInput
   createdAt: ModelStringInput
@@ -194,8 +194,8 @@ input ModelAnswerLogConditionInput {
   userId: ModelStringInput
   questionId: ModelStringInput
   isCorrect: ModelBooleanInput
-  timeTakenSec: ModelIntInput
   userAnswer: ModelStringInput
+  timeTakenSec: ModelIntInput
   answeredAt: ModelStringInput
   and: [ModelAnswerLogConditionInput]
   or: [ModelAnswerLogConditionInput]
@@ -208,8 +208,8 @@ input CreateAnswerLogInput {
   userId: String!
   questionId: String!
   isCorrect: Boolean!
-  timeTakenSec: Int
-  userAnswer: String
+  userAnswer: String!
+  timeTakenSec: Int!
   answeredAt: AWSDateTime!
   id: ID
 }
@@ -218,8 +218,8 @@ input UpdateAnswerLogInput {
   userId: String
   questionId: String
   isCorrect: Boolean
-  timeTakenSec: Int
   userAnswer: String
+  timeTakenSec: Int
   answeredAt: AWSDateTime
   id: ID!
 }
@@ -238,8 +238,8 @@ input ModelSubscriptionAnswerLogFilterInput {
   userId: ModelSubscriptionStringInput
   questionId: ModelSubscriptionStringInput
   isCorrect: ModelSubscriptionBooleanInput
-  timeTakenSec: ModelSubscriptionIntInput
   userAnswer: ModelSubscriptionStringInput
+  timeTakenSec: ModelSubscriptionIntInput
   answeredAt: ModelSubscriptionStringInput
   id: ModelSubscriptionIDInput
   createdAt: ModelSubscriptionStringInput

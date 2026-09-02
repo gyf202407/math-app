@@ -1,16 +1,15 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
 const schema = a.schema({
-  AnswerLog: a
-    .model({
-      userId: a.string().required(),
-      questionId: a.string().required(),
-      isCorrect: a.boolean().required(),
-      timeTakenSec: a.integer(),
-      userAnswer: a.string(),
-      answeredAt: a.datetime().required(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+  AnswerLog: a.model({
+    userId: a.string().required(),
+    questionId: a.string().required(),
+    isCorrect: a.boolean().required(),
+    userAnswer: a.string().required(),
+    timeTakenSec: a.integer().required(),
+    answeredAt: a.datetime().required(),
+  })
+  .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

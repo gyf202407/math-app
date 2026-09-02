@@ -32,18 +32,18 @@
                     "isRequired": true,
                     "attributes": []
                 },
-                "timeTakenSec": {
-                    "name": "timeTakenSec",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "userAnswer": {
                     "name": "userAnswer",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "timeTakenSec": {
+                    "name": "timeTakenSec",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
                     "attributes": []
                 },
                 "answeredAt": {
